@@ -1,14 +1,39 @@
-//
-//  main.cpp
-//  virtualDeconstructionTest
-//
-//  Created by Â≠ôÊ∞∏Êù∞ on 2022/5/3.
-//
-
 #include <iostream>
+class CBook {
+public:
+    CBook()
+    {
+        a = 10;
+        b = 100;
+    }
+    virtual ~CBook()
+    {
+        std::cout << "CBook deconstruction" << std::endl;
+    }
+private:
+    int a;
+    int b;
+};
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+class CBookChild : public CBook {
+public:
+    ~CBookChild()
+    {
+        std::cout << "CBookChild deconstruction" << std::endl;
+    }
+};
+
+int main()
+{
+    // CBook a; // Œˆππ∫Ø ˝∫√œÒ «÷ª”–¡Ω÷÷«Èøˆª·µ˜”√£¨1£¨œÒa’‚÷÷∑«new≥ˆ¿¥µƒ∂‘œÛ£¨‘⁄…˙√¸∆⁄Ω· ¯ ±Œˆππ
+    CBook* p = new CBookChild();                  // 2£¨’‚÷÷new≥ˆ¿¥µƒ∂‘œÛ£¨≤ªdelete≤ªµ˜”√°£
+    delete p;
+
+    // ∂‘”⁄“ª∏ˆ∆’Õ®∫Ø ˝¿¥Àµ£¨’‚∏ˆŒˆππ∫Ø ˝”¶∏√÷ªµ˜”√“ª¥Œ£¨“ÚŒ™’‚∏ˆ÷∏’Î µº …œ «÷∏œÚ“ª∏ˆ◊”¿‡∂‘œÛµƒ£¨
+    // ø… «“ÚŒ™ «Œˆππ∫Ø ˝£¨À˘”–ª˘¿‡µƒ
+    // Œˆππ∫Ø ˝“≤±ªµ˜”√¡À£¨”√¿¥Œˆππª˘¿‡≤ø∑÷£¨“ÚŒ™∆‰ µÀµ µ‘⁄µƒ£¨‘⁄’‚∏ˆ¿‡∂‘œÛππ‘Ïµƒ ±∫Ú≤ª «“≤¥”∏∏¿‡µƒ
+    // ππ‘Ï∫Ø ˝ø™ ºµƒ√¥!
+
+    // CBook* q = new CBookChild(3); // ’‚¿ÔÀµ√˜¥ÌŒÛ”ÎøΩ±¥ππ‘Ï∫Ø ˝”–πÿ£¨Œ“œ÷‘⁄ªπ≤ª√˜∞◊°£
     return 0;
 }
